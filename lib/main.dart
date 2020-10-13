@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:oloid/pages/home.dart';
+import 'package:oloid/pages/login.dart';
+import 'package:oloid/pages/signup.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Oloid',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: AppBar(title: Text("Can't wait to work on this super amazing project!")),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/login': (context) => Login(),
+        '/signup': (context) => Signup()
+      },
     );
   }
 }
