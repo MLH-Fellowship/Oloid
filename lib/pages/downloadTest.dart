@@ -1,16 +1,22 @@
-import 'package:oloid/pages/home.dart';
-import 'package:oloid/pages/menu.dart';
-import 'package:oloid/pages/signup.dart';
-import 'package:oloid/widgets/BuildCupertinoTextField.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:oloid/global/myColors.dart';
 import 'package:oloid/global/myDimens.dart';
 import 'package:oloid/global/mySpaces.dart';
 import 'package:oloid/global/myStrings.dart';
+import 'package:oloid/pages/home.dart';
+import 'package:oloid/pages/login.dart';
+import 'package:oloid/pages/menu.dart';
+import 'package:oloid/pages/signup.dart';
+import 'package:oloid/widgets/BuildCupertinoTextField.dart';
 
-class Login extends StatelessWidget {
-  static const id = "/login";
+class DownloadTest extends StatefulWidget {
+  static const id = "/download-test";
+  @override
+  _DownloadTestState createState() => _DownloadTestState();
+}
 
+class _DownloadTestState extends State<DownloadTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +35,14 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  child: Text(MyStrings.appName, style: Theme
-                      .of(context)
-                      .textTheme
-                      .headline5
-                      .copyWith(
-                      color: MyColors.white, fontWeight: FontWeight.bold),),
-                  onTap: () {
-                    Navigator.pushNamed(context, Home.id);
+                    child: Text(MyStrings.appName, style: Theme
+                        .of(context)
+                        .textTheme
+                        .headline5
+                        .copyWith(
+                        color: MyColors.white, fontWeight: FontWeight.bold),),
+                    onTap: () {
+                      Navigator.pushNamed(context, Home.id);
                     }),
                 Row(
                   children: [
@@ -83,20 +89,20 @@ class Login extends StatelessWidget {
                           .width / 50,
                     ),
                     FlatButton(
-                      child: Text(
-                        MyStrings.loginLabel, style: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyText1
-                          .copyWith(
-                          color: MyColors.white, fontSize: MyDimens.double_17),
-                      ),
-                      color: MyColors.accentColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(MyDimens.double_7),
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, Login.id);
+                        child: Text(
+                          MyStrings.loginLabel, style: Theme
+                            .of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(
+                            color: MyColors.white, fontSize: MyDimens.double_17),
+                        ),
+                        color: MyColors.accentColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(MyDimens.double_7),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, Login.id);
                         }
                     )
                   ],
@@ -131,7 +137,7 @@ class Login extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(MyStrings.loginLabel,
+                              Text('Download a test',
                                   style: Theme
                                       .of(context)
                                       .textTheme
@@ -141,11 +147,8 @@ class Login extends StatelessWidget {
                                       fontFamily: 'airbnb')),
                               MySpaces.vMediumGapInBetween,
                               BuildCupertinoTextField(
-                                  'Email address', TextInputType.emailAddress,
+                                  'Test code', TextInputType.emailAddress,
                                   false),
-                              MySpaces.vSmallGapInBetween,
-                              BuildCupertinoTextField(
-                                  'Password', TextInputType.text, true),
                               MySpaces.vMediumGapInBetween,
                             ],
                           ),
@@ -178,56 +181,7 @@ class Login extends StatelessWidget {
                           MySpaces.vMediumGapInBetween,
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            color: Colors.white24,
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .width / 10,
-                            height: MyDimens.double_1,
-                          ),
-                          Text(MyStrings.orLabel,
-                            style: TextStyle(color: MyColors.white),),
-                          Container(
-                            color: Colors.white24,
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .width / 10,
-                            height: MyDimens.double_1,
-                          ),
-                        ],
-                      ),
                       MySpaces.vMediumGapInBetween,
-                      FlatButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, Signup.id);
-                        },
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                MyDimens.double_4)),
-                        color: MyColors.lightAccentColor,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: MyDimens.double_15,
-                              horizontal: MyDimens.double_20),
-                          child: Text(
-                            MyStrings.createANewAccountLabel,
-                            style:
-                            Theme
-                                .of(context)
-                                .textTheme
-                                .subtitle1
-                                .
-                            copyWith(
-                                color: MyColors.white,
-                                fontFamily: 'lexenddeca'),
-                          ),
-                        ),
-                      ),
                     ],
                   )
               ),

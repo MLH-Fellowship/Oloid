@@ -1,5 +1,6 @@
 import 'package:oloid/pages/home.dart';
 import 'package:oloid/pages/login.dart';
+import 'package:oloid/pages/menu.dart';
 import 'package:oloid/widgets/BuildCupertinoTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:oloid/global/myColors.dart';
@@ -143,7 +144,7 @@ class _SignupState extends State<Signup> {
                         ),
                         FlatButton(
                           onPressed: () {
-                            print('hello');
+                            Navigator.pushNamed(context, Menu.id);
                           },
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(MyDimens.double_4)),

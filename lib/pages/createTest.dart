@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:oloid/global/myColors.dart';
 import 'package:oloid/global/myDimens.dart';
+import 'package:oloid/global/mySpaces.dart';
 import 'package:oloid/global/myStrings.dart';
+import 'package:oloid/pages/home.dart';
 import 'package:oloid/pages/login.dart';
 
-class Home extends StatelessWidget {
-  static const id = "/";
+class CreateTest extends StatefulWidget {
+  static const id = "/create-test";
+  @override
+  _CreateTestState createState() => _CreateTestState();
+}
+
+class _CreateTestState extends State<CreateTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,7 +99,6 @@ class Home extends StatelessWidget {
                         ),
                         onPressed: () {
                           Navigator.pushNamed(context, Login.id);
-                          print('check');
                         }
                     )
                   ],
@@ -103,15 +109,20 @@ class Home extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: Container(
-          alignment: Alignment.center,
-          child: Text(
-            """
-          Hello! We are Oloid.
-          We let you conduct smooth
-          exams even with a bad internet.
-          """, style: Theme.of(context).textTheme.headline4.copyWith(color: MyColors.white, fontWeight: FontWeight.bold),
-          ),
+        alignment: Alignment.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(MyStrings.createATestLabel, style: Theme.of(context).textTheme.headline5.copyWith(color: MyColors.white, fontWeight: FontWeight.bold),),
+            MySpaces.vSmallGapInBetween,
+            FlatButton(onPressed: () {
+              //
+            },
+              child: Text('Upload a test PDF', style: Theme.of(context).textTheme.subtitle1.copyWith(color: MyColors.grey),), color: MyColors.lightAccentColor,),
+          MySpaces.vSmallGapInBetween,
+            Text('Password: HIDQN91', style: TextStyle(color: MyColors.white),)
+          ],
         ),
       ),
     );
