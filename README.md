@@ -1,4 +1,4 @@
-# Oloid
+tter # Oloid
 
 <p align="center">
   <a href="https://github.com/MLH-Fellowship/Oloid">
@@ -34,6 +34,20 @@ For this project, we will be  collaborating  on various domains like:
 - Data Storage with Firebase 
 - Offline Database Storage and Synchronization
 - Encryption Utility for Flutter 
+
+## 👀 Build Instructions 
+
+- Clone the Repository: `git clone https://github.com/MLH-Fellowship/Oloid.git`
+- `cd` into the Repository: `cd Oloid`
+- Enable beta channel and enable web support:
+```
+$ flutter channel beta
+$ flutter upgrade
+$ flutter config --enable-web
+```
+- Check for the Devices configured for Flutter Web: `flutter devices`
+- Run the App in Release Mode: `flutter run -d chrome --release`
+- Generate a Build: `flutter build web`
 
 ## License 📜
 [MIT](https://github.com/MLH-Fellowship/Oloid/blob/main/LICENSE)
