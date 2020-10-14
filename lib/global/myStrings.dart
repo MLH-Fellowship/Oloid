@@ -18,4 +18,9 @@ class MyStrings {
   static const signupLabel = "Signup";
   static const loginToAnExistingAccountLabel = "Login to an existing account";
 
+  // menu page
+  static const createATestLabel = "Create a test";
+  static const gradedTestsLabel = "Graded tests";
+  static const downloadATestLabel = "Download a test";
+
 }

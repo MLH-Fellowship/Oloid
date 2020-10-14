@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:oloid/global/myColors.dart';
 import 'package:oloid/global/myDimens.dart';
+import 'package:oloid/global/mySpaces.dart';
 import 'package:oloid/global/myStrings.dart';
+import 'package:oloid/pages/createTest.dart';
+import 'package:oloid/pages/downloadTest.dart';
+import 'package:oloid/pages/home.dart';
 import 'package:oloid/pages/login.dart';
 
-class Home extends StatelessWidget {
-  static const id = "/";
+
+class Menu extends StatefulWidget {
+  static const id = "/menu";
+  @override
+  _MenuState createState() => _MenuState();
+}
+
+class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,7 +102,6 @@ class Home extends StatelessWidget {
                         ),
                         onPressed: () {
                           Navigator.pushNamed(context, Login.id);
-                          print('check');
                         }
                     )
                   ],
@@ -103,15 +112,71 @@ class Home extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: Container(
-          alignment: Alignment.center,
-          child: Text(
-            """
-          Hello! We are Oloid.
-          We let you conduct smooth
-          exams even with a bad internet.
-          """, style: Theme.of(context).textTheme.headline4.copyWith(color: MyColors.white, fontWeight: FontWeight.bold),
-          ),
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            InkWell(
+              onTap: () => Navigator.pushNamed(context, CreateTest.id),
+              child: Wrap(
+                children: <Widget>[Container(
+                  margin: EdgeInsets.all(MyDimens.double_30),
+                  padding: EdgeInsets.all(MyDimens.double_30),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(MyDimens.double_7),
+                      border: Border.all(color: MyColors.white)
+                  ),
+                  child: Column(
+                    children: [
+                      Icon(Icons.cloud_upload_outlined, color: MyColors.white, size: MyDimens.double_60,),
+                      MySpaces.vGapInBetween,
+                      Text(MyStrings.createATestLabel, style: Theme.of(context).textTheme.headline5.copyWith(color: MyColors.white,))
+                    ],
+                  ),
+                )],
+              ),
+            ),
+            InkWell(
+              child: Wrap(
+                children: <Widget>[Container(
+                  margin: EdgeInsets.all(MyDimens.double_30),
+                  padding: EdgeInsets.all(MyDimens.double_30),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(MyDimens.double_7),
+                      border: Border.all(color: MyColors.white)
+                  ),
+                  child: Column(
+                    children: [
+                      Icon(Icons.picture_as_pdf_outlined, color: MyColors.white, size: MyDimens.double_60,),
+                      MySpaces.vGapInBetween,
+                      Text(MyStrings.gradedTestsLabel, style: Theme.of(context).textTheme.headline5.copyWith(color: MyColors.white,))
+                    ],
+                  ),
+                )],
+              ),
+            ),
+            InkWell(
+              onTap: () => Navigator.pushNamed(context, DownloadTest.id),
+              child: Wrap(
+                children: <Widget>[Container(
+                  margin: EdgeInsets.all(MyDimens.double_30),
+                  padding: EdgeInsets.all(MyDimens.double_30),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(MyDimens.double_7),
+                      border: Border.all(color: MyColors.white)
+                  ),
+                  child: Column(
+                    children: [
+                      Icon(Icons.folder_open, color: MyColors.white, size: MyDimens.double_60,),
+                      MySpaces.vGapInBetween,
+                      Text(MyStrings.downloadATestLabel, style: Theme.of(context).textTheme.headline5.copyWith(color: MyColors.white,))
+                    ],
+                  ),
+                )],
+              ),
+            )
+          ],
         ),
       ),
     );
